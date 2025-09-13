@@ -1,49 +1,46 @@
-const CACHE_NAME = "notre-dame-audio-v1";
-const FILES_TO_CACHE = [
-  "index.html",
-  "AudioBook_NotreDame_EN.html",
-  "style.css",
-  "lecteur.js",
-  "manifest.json",
-  "Couverture_resized.jpg",
-  "logo.jpg",
-  "mentions_legales.pdf",
-  "Introduction.mp3",
-  "Chapitre1-1.mp3",
-  "Chapitre1-2.mp3",
-  "Chapitre1-3.mp3",
-  "Chapitre2-1.mp3",
-  "Chapitre2-2.mp3",
-  "Chapitre2-3.mp3",
-  "Chapitre3-1.mp3",
-  "Chapitre3-2.mp3",
-  "Chapitre3-3.mp3",
-  "Chapitre4-1.mp3",
-  "Chapitre4-2.mp3",
-  "Chapitre4-3.mp3",
-  "Chapitre5-1.mp3",
-  "Chapitre5-2.mp3",
-  "Chapitre5-3.mp3",
-  "Chapitre6-1.mp3",
-  "Chapitre6-2.mp3",
-  "Chapitre6-3.mp3",
-  "Chapitre7-1.mp3",
-  "Chapitre7-2.mp3",
-  "Chapitre7-3.mp3",
-  "Chapitre8-1.mp3",
-  "Chapitre8-2.mp3",
-  "Chapitre8-3.mp3",
-  "Conclusion.mp3"
-  ];
+const CACHE_NAME = "v1";
 
+// ✅ Liste uniquement les fichiers qui existent réellement
+const urlsToCache = [
+  "./",
+  "index.html",
+  "manifest.json",
+  "Couverture_resized.jpg"
+  // Ajoute ici d'autres fichiers UNIQUEMENT s'ils existent dans ton dépôt
+];
+
+// 📦 INSTALLATION : mise en cache initiale
 self.addEventListener("install", event => {
+  console.log("📦 Mise en cache initiale...");
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(FILES_TO_CACHE);
+    caches.open(CACHE_NAME)
+      .then(cache => {
+        return cache.addAll(urlsToCache);
+      })
+      .catch(err => {
+        console.error("❌ Échec du cache :", err);
+      })
+  );
+});
+
+// 🧹 ACTIVATION : nettoyage des anciens caches si nécessaire
+self.addEventListener("activate", event => {
+  console.log("⚙️ Activation du service worker...");
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(name => {
+          if (name !== CACHE_NAME) {
+            console.log("🗑️ Suppression du cache :", name);
+            return caches.delete(name);
+          }
+        })
+      );
     })
   );
 });
 
+// 🌐 FETCH : intercepter les requêtes et répondre depuis le cache
 self.addEventListener("fetch", event => {
   event.respondWith(
     caches.match(event.request).then(response => {

@@ -15,7 +15,7 @@ const player = new Plyr('#audioPlayer', {
   },
   captions: { active: false, update: false },
   i18n: {
-    speed: 'Speed'
+    speed: 'Vitesse'
   }
 });
 
