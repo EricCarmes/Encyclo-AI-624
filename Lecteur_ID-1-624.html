@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Smartbook - AudioBook</title>
+  <link rel="stylesheet" href="plyr.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <img src="ID-1-624-Couverture.jpg" alt="Couverture" style="width: 20%; height: auto; margin-bottom: 20px;">
+
+  <div class="logos">
+    <img src="PLANCHE-1a.jpg" alt="Logo AudioBook" style="width: 5%; height: auto; margin-bottom: 20px;">
+    <img src="Logo_resized.jpg" alt="Logo Encyclo-AI" style="width: 10%; height: auto; margin-bottom: 20px;">
+  </div>
+
+<!-- Bloc bouton Play + potentiomètre vitesse -->
+<div class="player-controls">
+  <!-- Gros bouton Play -->
+  <button id="bigPlayBtn" aria-label="Lire ou mettre en pause le livre audio">▶</button>
+
+  <!-- Bloc vitesse -->
+  <div id="speedControl">
+    <div class="speed-label">Vitesse</div>
+    <div class="speed-knob-wrapper">
+      <input type="range" id="speedKnob" min="0.9" max="1.1" step="0.05" value="1" orient="vertical">
+
+      <!-- Colonne repères alignés -->
+      <div id="speedLabels">
+        <span>++</span>
+        <span>+</span>
+        <span>=</span>
+        <span>-</span>
+        <span>--</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Lecteur audio -->
+  <audio id="audioPlayer" controls></audio>
+
+  <!-- Playlist -->
+  <ul id="playlist">
+    <li><a href="Introduction.mp3" style="font-weight: bold;">INTRODUCTION - NOTRE-DAME: A TIMELESS SYMBOL OF RESILIENCE</a></li>
+
+    <li style="font-weight: bold;">Chapter 1 - THE ORIGINS OF NOTRE-DAME: A HISTORICAL OVERVIEW</li>
+    <ul>
+      <li><a href="Chapitre1-1.mp3">1.1 - The 12th Century Context</a></li>
+      <li><a href="Chapitre1-2.mp3">1.2 - The Founding of Notre-Dame</a></li>
+      <li><a href="Chapitre1-3.mp3">1.3 - Early Architectural Features</a></li>
+    </ul>
+
+    <li style="font-weight: bold;">Chapter 2 - ARCHITECTURAL INNOVATIONS OF THE GOTHIC ERA</li>
+    <ul>
+      <li><a href="Chapitre2-1.mp3">2.1 - The Flying Buttress</a></li>
+      <li><a href="Chapitre2-2.mp3">2.2 - Stained-Glass Windows</a></li>
+      <li><a href="Chapitre2-3.mp3">2.3 - Sculptural Elements</a></li>
+    </ul>
+
+    <li style="font-weight: bold;">Chapter 3 - THE ROLE OF NOTRE-DAME IN FRENCH HISTORY</li>
+    <ul>
+      <li><a href="Chapitre3-1.mp3">3.1 - Royal Ceremonies</a></li>
+      <li><a href="Chapitre3-2.mp3">3.2 - Revolutionary Upheavals</a></li>
+      <li><a href="Chapitre3-3.mp3">3.3 - Cultural Renaissance</a></li>
+    </ul>
+
+    <li style="font-weight: bold;">Chapter 4 - RESTORATION EFFORTS: THE WORK OF EUGÈNE VIOLLET-LE-DUC</li>
+    <ul>
+      <li><a href="Chapitre4-1.mp3">4.1 - Viollet-le-Duc's Vision</a></li>
+      <li><a href="Chapitre4-2.mp3">4.2 - Key Restorations</a></li>
+      <li><a href="Chapitre4-3.mp3">4.3 - Legacy and Criticism</a></li>
+    </ul>
+
+    <li style="font-weight: bold;">Chapter 5 - THE 2019 FIRE: CAUSES AND CONSEQUENCES</li>
+    <ul>
+      <li><a href="Chapitre5-1.mp3">5.1 - The Events of April 15, 2019</a></li>
+      <li><a href="Chapitre5-2.mp3">5.2 - Damage Assessment</a></li>
+      <li><a href="Chapitre5-3.mp3">5.3 - Global Response</a></li>
+    </ul>
+
+    <li style="font-weight: bold;">Chapter 6 - THE GLOBAL RESTORATION PROJECT: VISION AND CHALLENGES</li>
+    <ul>
+      <li><a href="Chapitre6-1.mp3">6.1 - Planning the Restoration</a></li>
+      <li><a href="Chapitre6-2.mp3">6.2 - Innovative Techniques</a></li>
+      <li><a href="Chapitre6-3.mp3">6.3 - Overcoming Challenges</a></li>
+    </ul>
+
+    <li style="font-weight: bold;">Chapter 7 - MODERN TECHNIQUES IN HISTORICAL RESTORATION</li>
+    <ul>
+      <li><a href="Chapitre7-1.mp3">7.1 - Advancements in Materials</a></li>
+      <li><a href="Chapitre7-2.mp3">7.2 - Digital Preservation</a></li>
+      <li><a href="Chapitre7-3.mp3">7.3 - Sustainability in Restoration</a></li>
+    </ul>
+
+    <li style="font-weight: bold;">Chapter 8 - THE REOPENING CEREMONY: A SYMBOL OF RESILIENCE</li>
+    <ul>
+      <li><a href="Chapitre8-1.mp3">8.1 - Preparations for the Ceremony</a></li>
+      <li><a href="Chapitre8-2.mp3">8.2 - Highlights of the Event</a></li>
+      <li><a href="Chapitre8-3.mp3">8.3 - Public and Media Reception</a></li>
+    </ul>
+
+    <li><a href="Conclusion.mp3" style="font-weight: bold;">CONCLUSION - PRESERVING NOTRE-DAME: A LEGACY FOR THE FUTURE</a></li>
+  </ul>
+
+  <p><a href="ID-1-624-Annexes.pdf" target="_blank">📄Consult the book's appendices</a></p>
+  <p><a href="mentions_legales.pdf">Legal Notices</a></p>
+
+  <script src="plyr.polyfilled.js"></script>
+  <script src="lecteur.js"></script>
+</body>
+</html>
